@@ -1,0 +1,6 @@
+@Jornadas_Metalurgia_2026_HostAddress = http://localhost:5033
+
+GET {{Jornadas_Metalurgia_2026_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
