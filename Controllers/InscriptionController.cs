@@ -50,7 +50,7 @@ namespace Jornadas_Metalurgia_2026.Controllers
 
 
         [HttpPost("create")]
-        [AllowAnonymous]
+        [All]
         [ProducesResponseType(typeof(Inscription), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(HttpMessage), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(HttpMessage), StatusCodes.Status500InternalServerError)]
@@ -70,9 +70,8 @@ namespace Jornadas_Metalurgia_2026.Controllers
             }
             catch (Exception ex)
             {
-                var error = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                 return StatusCode(
-                    (int)HttpStatusCode.InternalServerError, new HttpMessage($"{error},{ex.Message}"));
+                    (int)HttpStatusCode.InternalServerError, new HttpMessage(ex.Message));
             }
         }
 
