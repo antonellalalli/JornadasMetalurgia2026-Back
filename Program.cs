@@ -63,7 +63,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("https://jornadas-metalurgia2026.vercel.app/")
+        policy.WithOrigins("https://jornadas-metalurgia2026.vercel.app")
         .SetIsOriginAllowedToAllowWildcardSubdomains()
         .AllowAnyHeader()
         .AllowAnyMethod()
@@ -102,11 +102,11 @@ builder.Services.AddAuthentication(opts =>
 
 
 
+var app = builder.Build();
 var AdminValue = builder.Configuration["AdminData:Email"];
 var AdminValueP = builder.Configuration["AdminData:Password"];
 Console.WriteLine(AdminValue);
 
-var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
