@@ -1,7 +1,5 @@
 ﻿using HandlebarsDotNet;
-using MimeKit;
-using MailKit.Security;
-using MailKit.Net.Smtp;
+using SendGrid.Helpers.Mail;
 
 namespace Jornadas_Metalurgia_2026.Services
 
@@ -17,28 +15,26 @@ namespace Jornadas_Metalurgia_2026.Services
 
         public async Task SendInscriptionMail (string recipient, string studentName, int id)
         {
-            Console.WriteLine($"{_config["USEREMAIL"]}");
-            Console.WriteLine($"{_config["EMAILPASS"]}");
+        
             string templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Templates", "confirmacion.html");
             string templateText = await File.ReadAllTextAsync(templatePath);
 
             var template = Handlebars.Compile(templateText);
-            var data = new { StudentName = studentName, Id = id };
-            string html = template(data);
 
+            var html = template(new { StudentName = studentName, Id = id });
 
+            var client = new SendGridClient(_config["SENDGRID_API_KEY"]);
 
-            var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("Jornadas Metalurgia", _config["USEREMAIL"]));
-            email.To.Add(new MailboxAddress(studentName, recipient));
-            email.Subject = "Confirmación de Inscripción";
-            email.Body = new TextPart("html") { Text = html };
+            var from = new EmailAddress("jornadasmetalurgia@gmail.com", "Jornadas Metalurgia");
+            var to = new EmailAddress(recipient);
 
-            using var client = new SmtpClient();
-            await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-            await client.AuthenticateAsync(_config["USEREMAIL"], _config["EMAILPASS"]);
-            await client.SendAsync(email);
-            await client.DisconnectAsync(true);
+            var msg = MailHelper.CreateSingleEmail(from, to, "Confirmación de Inscripción", null, html);
+            var response = await client.SendEmailAsync(msg);
+            if (!response.IsSuccessStatusCode)
+            {
+                var body = await response.Body.ReadAsStringAsync();
+                throw new Exception($"Error al enviar el mail {response.StatusCode} - {body}");
+            }
         }
     }
 }

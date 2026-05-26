@@ -90,6 +90,8 @@ namespace Jornadas_Metalurgia_2026.Services
                 };
             }
             await _repo.CreateOneAsync(newInscription);
+            _= Task.Run (async () =>
+            {
             try
             {
                 await _emailService.SendInscriptionMail(newInscription.StudentEmail, newInscription.StudentName, newInscription.Id);
@@ -98,6 +100,12 @@ namespace Jornadas_Metalurgia_2026.Services
             {
                 Console.WriteLine($"Error enviando confirmación de inscripción, {ex}");
             }
+
+            }
+            
+            
+            
+            )
             return newInscription;
         }
 
