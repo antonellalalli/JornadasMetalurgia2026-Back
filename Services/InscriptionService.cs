@@ -90,22 +90,18 @@ namespace Jornadas_Metalurgia_2026.Services
                 };
             }
             await _repo.CreateOneAsync(newInscription);
-            _= Task.Run (async () =>
+            Task.Run(async () =>
             {
-            try
-            {
-                await _emailService.SendInscriptionMail(newInscription.StudentEmail, newInscription.StudentName, newInscription.Id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error enviando confirmación de inscripción, {ex}");
-            }
+                try
+                {
+                    await _emailService.SendInscriptionMail(newInscription.StudentEmail, newInscription.StudentName, newInscription.Id);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error enviando confirmación de inscripción, {ex}");
+                }
 
-            }
-            
-            
-            
-            )
+            } );
             return newInscription;
         }
 

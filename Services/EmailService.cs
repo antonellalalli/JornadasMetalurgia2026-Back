@@ -1,6 +1,6 @@
 ﻿using HandlebarsDotNet;
 using SendGrid.Helpers.Mail;
-
+using SendGrid;
 namespace Jornadas_Metalurgia_2026.Services
 
 {
