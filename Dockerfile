@@ -1,14 +1,21 @@
+# Etapa de construcción
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["Jornadas-Metalurgia-2026/Jornadas-Metalurgia-2026.csproj", "Jornadas-Metalurgia-2026/"]
+# Copiar el archivo de proyecto específicamente
+# Ajusta el nombre si tu archivo tiene otro nombre exacto
+COPY ["Jornadas-Metalurgia-2026.csproj", "./"]
 
-RUN dotnet restore
+# Restaurar dependencias
+RUN dotnet restore "Jornadas-Metalurgia-2026.csproj"
 
-COPY . . 
-WORKDIR "/src/."
-RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
+# Copiar todo el resto del código
+COPY . .
 
+# Publicar la aplicación
+RUN dotnet publish "Jornadas-Metalurgia-2026.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Etapa final
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
