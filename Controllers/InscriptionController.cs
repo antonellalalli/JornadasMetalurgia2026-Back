@@ -70,8 +70,9 @@ namespace Jornadas_Metalurgia_2026.Controllers
             }
             catch (Exception ex)
             {
+                var error = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
                 return StatusCode(
-                    (int)HttpStatusCode.InternalServerError, new HttpMessage(ex.Message));
+                    (int)HttpStatusCode.InternalServerError, new HttpMessage($"{error},{ex.Message}"));
             }
         }
 
