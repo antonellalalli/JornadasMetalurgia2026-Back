@@ -50,7 +50,7 @@ namespace Jornadas_Metalurgia_2026.Controllers
 
 
         [HttpPost("create")]
-        [All]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(Inscription), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(HttpMessage), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(HttpMessage), StatusCodes.Status500InternalServerError)]
