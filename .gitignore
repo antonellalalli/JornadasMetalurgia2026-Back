@@ -1,0 +1,16 @@
+#Archivos de Visual
+.vs/
+*.user
+*.suo
+
+#Achivos de compilacion
+bin/
+obj/
+
+#Carpetas de cache
+Logs/
+*.log
+
+#Archivos de entorno
+appsettings.Development.json
+secrets.json

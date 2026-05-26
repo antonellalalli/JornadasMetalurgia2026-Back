@@ -124,7 +124,6 @@ C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\
 C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\bin\Debug\net8.0\Npgsql.dll
 C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\bin\Debug\net8.0\Jornadas-Metalurgia-2026.staticwebassets.runtime.json
-C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\bin\Debug\net8.0\Templates\confirmacion.html
 C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 C:\Users\Usuario\source\repos\Jornadas-Metalurgia-2026\Jornadas-Metalurgia-2026\bin\Debug\net8.0\Handlebars.dll
