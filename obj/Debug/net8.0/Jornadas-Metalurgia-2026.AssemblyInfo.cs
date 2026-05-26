@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Jornadas-Metalurgia-2026")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49b617b0c24f1434b16c75987c24477ecd5fd044")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfbb58c3526c579eb1476086b6df7e4e7375c3a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Jornadas-Metalurgia-2026")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Jornadas-Metalurgia-2026")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

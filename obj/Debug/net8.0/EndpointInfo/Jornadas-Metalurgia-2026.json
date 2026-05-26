@@ -383,6 +383,13 @@
             }
           },
           {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "isActive",
             "in": "query",
             "schema": {

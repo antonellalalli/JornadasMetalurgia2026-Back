@@ -59,6 +59,18 @@
               "target": "Package",
               "version": "[4.2.0, )"
             },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.29.1, )"
+            },
+            "Handlebars.Net": {
+              "target": "Package",
+              "version": "[2.1.6, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.16.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.27, )"

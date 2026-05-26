@@ -23,13 +23,12 @@ namespace Jornadas_Metalurgia_2026.Controllers
 
         [HttpGet("inscriptions")]
         [Authorize(Roles = ROLE.ADMIN)]
-        public async Task<ActionResult<List<Inscription>>> GetAllInscriptions([FromQuery] string? type
-            , [FromQuery] bool? isActive = true)
+        public async Task<ActionResult<List<Inscription>>> GetAllInscriptions([FromQuery] string? type,  string? query, bool? isActive = true)
         {
             try
             {
 
-                var inscriptions = await _inscriptionService.GetAll(type, isActive);
+                var inscriptions = await _inscriptionService.GetAll(type, query, isActive);
                 return Ok(inscriptions);
             }
             catch (HttpResponseError ex)

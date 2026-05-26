@@ -46,6 +46,7 @@ builder.Services.AddScoped<RoleService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<InscriptionService>();
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<EmailService>();
 
 //REPOSITORIOS
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -61,7 +62,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5175")
+        policy.WithOrigins("http://localhost:5175"
+                
+            //VERCEL
+            
+            )
         .AllowAnyHeader()
         .AllowAnyMethod()
         .AllowCredentials();
